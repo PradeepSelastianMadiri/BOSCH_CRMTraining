@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosch_CRMTraining", "Bosch_CRMTraining\Bosch_CRMTraining.csproj", "{2745F7EF-CA07-463A-938F-86C44F75A14F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14Feb2021", "..\Madiri_AreaOfRectAndCircle\14Feb2021\14Feb2021.csproj", "{212FB0FE-FB0D-4A93-9F39-06466D8D174D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feb152022", "..\Madiri_AreaOfRectAndCircle\Feb152022\Feb152022.csproj", "{1D8D3D23-26E2-4465-B49B-47265F163A85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{2745F7EF-CA07-463A-938F-86C44F75A14F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2745F7EF-CA07-463A-938F-86C44F75A14F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2745F7EF-CA07-463A-938F-86C44F75A14F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{212FB0FE-FB0D-4A93-9F39-06466D8D174D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212FB0FE-FB0D-4A93-9F39-06466D8D174D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212FB0FE-FB0D-4A93-9F39-06466D8D174D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212FB0FE-FB0D-4A93-9F39-06466D8D174D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D8D3D23-26E2-4465-B49B-47265F163A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D8D3D23-26E2-4465-B49B-47265F163A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D8D3D23-26E2-4465-B49B-47265F163A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D8D3D23-26E2-4465-B49B-47265F163A85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
