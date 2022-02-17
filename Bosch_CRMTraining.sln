@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feb16_2022_DictionaryExampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK_KR", "SK_KR\SK_KR.csproj", "{C1812FEB-A5B6-434D-810A-37FBD7A1E36F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feb17_2022", "Feb17_2022\Feb17_2022.csproj", "{2736DFF4-CCF3-425C-A781-CD1695D1AC59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{C1812FEB-A5B6-434D-810A-37FBD7A1E36F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1812FEB-A5B6-434D-810A-37FBD7A1E36F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1812FEB-A5B6-434D-810A-37FBD7A1E36F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2736DFF4-CCF3-425C-A781-CD1695D1AC59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2736DFF4-CCF3-425C-A781-CD1695D1AC59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2736DFF4-CCF3-425C-A781-CD1695D1AC59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2736DFF4-CCF3-425C-A781-CD1695D1AC59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

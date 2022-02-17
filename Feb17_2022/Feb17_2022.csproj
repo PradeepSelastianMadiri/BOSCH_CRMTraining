@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A63B1961-1E74-4189-9CAE-BE094CE289A5}</ProjectGuid>
+    <ProjectGuid>{2736DFF4-CCF3-425C-A781-CD1695D1AC59}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TestingSample</RootNamespace>
-    <AssemblyName>TestingSample</AssemblyName>
+    <RootNamespace>Feb17_2022</RootNamespace>
+    <AssemblyName>Feb17_2022</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestingSample.cs" />
+    <Compile Include="Feb17_2021.cs" />
+    <Compile Include="FileHandlingExamples.cs" />
+    <Compile Include="PartialEmployee.cs" />
+    <Compile Include="PartialEmployee1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
