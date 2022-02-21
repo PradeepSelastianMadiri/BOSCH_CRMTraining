@@ -1,0 +1,45 @@
+﻿@model Employee_21Feb2022.Models.MovieModel
+
+@{
+    ViewBag.Title = "GetMoviewDetails";
+}
+
+<style>
+    table, th, td {
+        border: 1px solid;
+    }
+
+</style>
+
+<h2>GetMoviewDetails</h2>
+
+<div>
+    <h4>MovieModel</h4>
+    <hr />
+    <table>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Title)</td>
+            <td>@Html.DisplayFor(model => model.Title)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ReleaseDate)</td>
+            <td>@Html.DisplayFor(model => model.ReleaseDate)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Genre)</td>
+            <td>@Html.DisplayFor(model => model.Genre)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Rating)</td>
+            <td>@Html.DisplayFor(model => model.Rating)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Price)</td>
+            <td>@Html.DisplayFor(model => model.Price)</td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
