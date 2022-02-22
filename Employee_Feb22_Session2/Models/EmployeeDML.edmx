@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EmployeeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblDepartment">
+          <Key>
+            <PropertyRef Name="DeptID" />
+          </Key>
+          <Property Name="DeptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Age" Type="int" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="BasicSalary" Type="float" />
+          <Property Name="DepartmentID" Type="int" />
+          <Property Name="EmployeeTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblEmployeeType">
+          <Key>
+            <PropertyRef Name="EmployeeTypeId" />
+          </Key>
+          <Property Name="EmployeeTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeType" Type="nvarchar" MaxLength="512" />
+        </EntityType>
+        <EntityType Name="tblLogin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="512" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="512" />
+        </EntityType>
+        <EntityType Name="tblSignUp">
+          <Key>
+            <PropertyRef Name="SignUpId" />
+          </Key>
+          <Property Name="SignUpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="512" />
+          <Property Name="Password" Type="nvarchar" MaxLength="512" />
+          <Property Name="Name" Type="nvarchar" MaxLength="512" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1024" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <Association Name="FK_tblEmployee_tblDepartment">
+          <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDepartment">
+              <PropertyRef Name="DeptID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblEmployee_tblEmployeeType">
+          <End Role="tblEmployeeType" Type="Self.tblEmployeeType" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployeeType">
+              <PropertyRef Name="EmployeeTypeId" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="EmployeeTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmployeeModelStoreContainer">
+          <EntitySet Name="tblDepartment" EntityType="Self.tblDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployeeType" EntityType="Self.tblEmployeeType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLogin" EntityType="Self.tblLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSignUp" EntityType="Self.tblSignUp" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblEmployee_tblDepartment" Association="Self.FK_tblEmployee_tblDepartment">
+            <End Role="tblDepartment" EntitySet="tblDepartment" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblEmployee_tblEmployeeType" Association="Self.FK_tblEmployee_tblEmployeeType">
+            <End Role="tblEmployeeType" EntitySet="tblEmployeeType" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmployeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblDepartment">
+          <Key>
+            <PropertyRef Name="DeptID" />
+          </Key>
+          <Property Name="DeptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeptName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK_tblEmployee_tblDepartment" FromRole="tblDepartment" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentID" Type="Int32" />
+          <NavigationProperty Name="tblDepartment" Relationship="Self.FK_tblEmployee_tblDepartment" FromRole="tblEmployee" ToRole="tblDepartment" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BasicSalary" Type="Double" />
+          <Property Name="EmployeeTypeId" Type="Int32" />
+          <NavigationProperty Name="tblEmployeeType" Relationship="EmployeeModel.FK_tblEmployee_tblEmployeeType" FromRole="tblEmployee" ToRole="tblEmployeeType" />
+        </EntityType>
+        <Association Name="FK_tblEmployee_tblDepartment">
+          <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDepartment">
+              <PropertyRef Name="DeptID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BOSH_CRMTrainingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblDepartments" EntityType="Self.tblDepartment" />
+          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+          <AssociationSet Name="FK_tblEmployee_tblDepartment" Association="Self.FK_tblEmployee_tblDepartment">
+            <End Role="tblDepartment" EntitySet="tblDepartments" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <EntitySet Name="tblEmployeeTypes" EntityType="EmployeeModel.tblEmployeeType" />
+          <AssociationSet Name="FK_tblEmployee_tblEmployeeType" Association="EmployeeModel.FK_tblEmployee_tblEmployeeType">
+            <End Role="tblEmployeeType" EntitySet="tblEmployeeTypes" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <EntitySet Name="tblLogins" EntityType="EmployeeModel.tblLogin" />
+          <EntitySet Name="tblSignUps" EntityType="EmployeeModel.tblSignUp" />
+        </EntityContainer>
+        <EntityType Name="tblEmployeeType">
+          <Key>
+            <PropertyRef Name="EmployeeTypeId" />
+          </Key>
+          <Property Name="EmployeeTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeType" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblEmployees" Relationship="EmployeeModel.FK_tblEmployee_tblEmployeeType" FromRole="tblEmployeeType" ToRole="tblEmployee" />
+        </EntityType>
+        <Association Name="FK_tblEmployee_tblEmployeeType">
+          <End Type="EmployeeModel.tblEmployeeType" Role="tblEmployeeType" Multiplicity="0..1" />
+          <End Type="EmployeeModel.tblEmployee" Role="tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployeeType">
+              <PropertyRef Name="EmployeeTypeId" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="EmployeeTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblLogin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassword" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSignUp">
+          <Key>
+            <PropertyRef Name="SignUpId" />
+          </Key>
+          <Property Name="SignUpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmployeeModelStoreContainer" CdmEntityContainer="BOSH_CRMTrainingEntities">
+          <EntitySetMapping Name="tblDepartments">
+            <EntityTypeMapping TypeName="EmployeeModel.tblDepartment">
+              <MappingFragment StoreEntitySet="tblDepartment">
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployees">
+            <EntityTypeMapping TypeName="EmployeeModel.tblEmployee">
+              <MappingFragment StoreEntitySet="tblEmployee">
+                <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
+                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployeeTypes">
+            <EntityTypeMapping TypeName="EmployeeModel.tblEmployeeType">
+              <MappingFragment StoreEntitySet="tblEmployeeType">
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLogins">
+            <EntityTypeMapping TypeName="EmployeeModel.tblLogin">
+              <MappingFragment StoreEntitySet="tblLogin">
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSignUps">
+            <EntityTypeMapping TypeName="EmployeeModel.tblSignUp">
+              <MappingFragment StoreEntitySet="tblSignUp">
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="SignUpId" ColumnName="SignUpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

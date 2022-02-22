@@ -54,7 +54,6 @@ namespace Employee_21Feb2022.Controllers
         [HttpPost]
         public ActionResult ModifyMovie(MovieModel mv)
         {
-            MovieModel mv1 = null;
             var movieFound = lstMovieModel.Where(x => x.ID == mv.ID).FirstOrDefault();
             if (movieFound != null)
             {

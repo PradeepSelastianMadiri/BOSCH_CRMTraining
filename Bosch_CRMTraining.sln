@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeSalDLLExample", "Em
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee_21Feb2022", "Employee_21Feb2022\Employee_21Feb2022.csproj", "{A0119830-72D9-4EF3-857C-D6CE65427D8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee_Feb22_Session2", "Employee_Feb22_Session2\Employee_Feb22_Session2.csproj", "{4EAF45B9-121A-4359-A996-906076B34945}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{A0119830-72D9-4EF3-857C-D6CE65427D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0119830-72D9-4EF3-857C-D6CE65427D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0119830-72D9-4EF3-857C-D6CE65427D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EAF45B9-121A-4359-A996-906076B34945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EAF45B9-121A-4359-A996-906076B34945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EAF45B9-121A-4359-A996-906076B34945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EAF45B9-121A-4359-A996-906076B34945}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
