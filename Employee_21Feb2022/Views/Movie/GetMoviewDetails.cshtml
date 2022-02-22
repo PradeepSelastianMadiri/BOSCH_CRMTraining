@@ -1,4 +1,4 @@
-﻿@model Employee_21Feb2022.Models.MovieModel
+﻿@model IEnumerable<Employee_21Feb2022.Models.MovieModel>
 
 @{
     ViewBag.Title = "GetMoviewDetails";
@@ -7,6 +7,7 @@
 <style>
     table, th, td {
         border: 1px solid;
+        text-align: center;
     }
 
 </style>
@@ -18,28 +19,31 @@
     <hr />
     <table>
         <tr>
-            <td>@Html.DisplayNameFor(model => model.Title)</td>
-            <td>@Html.DisplayFor(model => model.Title)</td>
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.ReleaseDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Genre)</th>
+            <th>@Html.DisplayNameFor(model => model.Rating)</th>
+            <th>@Html.DisplayNameFor(model => model.Price)</th>
+            <th>Action</th>
         </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.ReleaseDate)</td>
-            <td>@Html.DisplayFor(model => model.ReleaseDate)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.Genre)</td>
-            <td>@Html.DisplayFor(model => model.Genre)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.Rating)</td>
-            <td>@Html.DisplayFor(model => model.Rating)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.Price)</td>
-            <td>@Html.DisplayFor(model => model.Price)</td>
-        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @Html.HiddenFor(ModelItem => item.ID)
+                <td style=" width: 200px;">@item.Title</td>
+                <td style=" width: 200px;">@item.ReleaseDate</td>
+                <td style=" width: 200px;">@item.Genre</td>
+                <td style=" width: 200px;">@item.Rating</td>
+                <td style=" width: 200px;">@item.Price</td>
+                <td style=" width: 200px;">
+                    @Html.ActionLink("Edit", "ModifyMovie", new { id = item.ID }, new { @class = "btn btn-info btn-xs" })
+
+                </td>
+            </tr>
+        }
     </table>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
+    @Html.ActionLink("Back to List", "GetMoviewDetails")
 </p>

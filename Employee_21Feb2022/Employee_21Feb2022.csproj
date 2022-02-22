@@ -171,6 +171,8 @@
     <Content Include="Views\Employee\ViewDetails.cshtml" />
     <Content Include="Views\Movie\GetMoviewDetails.cshtml" />
     <Content Include="Views\Shakthi\Index.cshtml" />
+    <Content Include="Views\Movie\ModifyMovie.cshtml" />
+    <Content Include="Views\Movie\MovieDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
