@@ -21,6 +21,7 @@ namespace Employee_Feb22_Session2.Models
         [Required(ErrorMessage = "Enter employee name")]
         public string EmpName { get; set; }
         public string Gender { get; set; }
+        [DisplayName("Department")]
         [Required(ErrorMessage = "Please select Department")]
         public Nullable<int> DepartmentID { get; set; }
         [Range(18, 60, ErrorMessage = "Age should be in range(18 - 60)")]
@@ -33,6 +34,7 @@ namespace Employee_Feb22_Session2.Models
         public string Address { get; set; }
         [Range(10000, 95000, ErrorMessage = "Salary should in range(10K to 95K)")]
         public Nullable<double> BasicSalary { get; set; }
+        [DisplayName("Employee Type")]
         public Nullable<int> EmployeeTypeId { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
         [Required(ErrorMessage = "Please enter emailid.")]

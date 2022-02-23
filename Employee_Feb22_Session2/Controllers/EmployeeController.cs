@@ -53,22 +53,25 @@ namespace Employee_Feb22_Session2.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool IsValid = false;
+                bool IsValid = true;
 
                 if (tblEmployee.DOB.Value.Date > DateTime.Now.Date)
                 {
                     ModelState.AddModelError("DOB", "DOB cannot be future date.");
+                    IsValid = false;
                 }
 
                 if (tblEmployee.DOJ.Value.Date > DateTime.Now.Date)
                 {
                     ModelState.AddModelError("DOJ", "DOJ cannot be future date.");
+                    IsValid = false;
                 }
 
                 int EligibleYears = DateTime.Now.Year - tblEmployee.DOB.Value.Year;
-                if (EligibleYears < 21)
+                if (EligibleYears < 20)
                 {
-                    ModelState.AddModelError("DOB", "Your age is less than 21.");
+                    ModelState.AddModelError("DOB", "Your age is less than 20.");
+                    IsValid = false;
                 }
 
                 if (IsValid)
