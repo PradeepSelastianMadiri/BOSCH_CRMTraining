@@ -17,6 +17,12 @@ namespace Employee_Feb22_Session2.Controllers
         }
 
         // GET: Account
+
+        public ActionResult Welcome()
+        {
+            return View();
+        }
+
         public ActionResult SignUp()
         {
             return View();
@@ -26,16 +32,42 @@ namespace Employee_Feb22_Session2.Controllers
         public ActionResult SignUp(tblSignUp signUp)
         {
             var AlreadyExists = EmployeeContext.tblSignUps.Where(x => x.UserName == signUp.UserName).SingleOrDefault();
-            if(AlreadyExists == null)
+            if (AlreadyExists == null)
             {
                 EmployeeContext.tblSignUps.Add(signUp);
                 EmployeeContext.SaveChanges();
-                TempData["SignUpMessage"] = "Successfully Registered.";
+                TempData["InvalidLogin"] = "Successfully Registered, Please Login";
+                return RedirectToAction("Login");
             }
             else
             {
                 TempData["SignUpMessage"] = "Username is already taken.";
             }
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(tblSignUp login)
+        {
+            var loginFound = EmployeeContext.tblSignUps.Where(x => x.UserName.ToLower() == login.UserName.ToLower() && x.Password == login.Password).SingleOrDefault();
+
+            if (loginFound != null)
+            {
+                Session["LogedInuser"] = loginFound;
+                return RedirectToAction("Index", "Employee");
+
+            }
+            else
+            {
+                TempData["InvalidLogin"] = "Invalid Credentials";
+            }
+
             return View();
         }
     }

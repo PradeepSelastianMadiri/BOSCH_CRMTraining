@@ -19,9 +19,14 @@
           <Property Name="EmpID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmpName" Type="nvarchar" MaxLength="1000" />
           <Property Name="Age" Type="int" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="DOJ" Type="date" />
           <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
           <Property Name="Gender" Type="nvarchar" MaxLength="50" />
-          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="512" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1024" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
           <Property Name="BasicSalary" Type="float" />
           <Property Name="DepartmentID" Type="int" />
           <Property Name="EmployeeTypeId" Type="int" />
@@ -114,10 +119,15 @@
           <NavigationProperty Name="tblDepartment" Relationship="Self.FK_tblEmployee_tblDepartment" FromRole="tblEmployee" ToRole="tblDepartment" />
           <Property Name="Age" Type="Int32" />
           <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
           <Property Name="BasicSalary" Type="Double" />
           <Property Name="EmployeeTypeId" Type="Int32" />
           <NavigationProperty Name="tblEmployeeType" Relationship="EmployeeModel.FK_tblEmployee_tblEmployeeType" FromRole="tblEmployee" ToRole="tblEmployeeType" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOJ" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="FK_tblEmployee_tblDepartment">
           <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
@@ -202,6 +212,11 @@
           <EntitySetMapping Name="tblEmployees">
             <EntityTypeMapping TypeName="EmployeeModel.tblEmployee">
               <MappingFragment StoreEntitySet="tblEmployee">
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
                 <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
                 <ScalarProperty Name="Address" ColumnName="Address" />

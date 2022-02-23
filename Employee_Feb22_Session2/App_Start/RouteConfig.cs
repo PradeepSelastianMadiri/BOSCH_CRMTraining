@@ -16,7 +16,7 @@ namespace Employee_Feb22_Session2
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Account", action = "SignUp", id = UrlParameter.Optional }
+                defaults: new { controller = "Account", action = "Welcome", id = UrlParameter.Optional }
             );
         }
     }

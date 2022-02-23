@@ -11,19 +11,40 @@ namespace Employee_Feb22_Session2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblEmployee
     {
         public long EmpID { get; set; }
+        [DisplayName("Employee Name")]
+        [Required(ErrorMessage = "Enter employee name")]
         public string EmpName { get; set; }
         public string Gender { get; set; }
+        [Required(ErrorMessage = "Please select Department")]
         public Nullable<int> DepartmentID { get; set; }
+        [Range(18, 60, ErrorMessage = "Age should be in range(18 - 60)")]
         public Nullable<int> Age { get; set; }
+        [DisplayName("Mobile")]
+        [Required(ErrorMessage = "Please enter contact number.")]
+        [Phone(ErrorMessage = "Invalid contact number.")]
+        [RegularExpression(@"^[6789][0-9]{9}$", ErrorMessage = "Contact number should start with 6 or 7 or 8 or 9 and total length should be 10.")]
         public string PhoneNo { get; set; }
         public string Address { get; set; }
+        [Range(10000, 95000, ErrorMessage = "Salary should in range(10K to 95K)")]
         public Nullable<double> BasicSalary { get; set; }
         public Nullable<int> EmployeeTypeId { get; set; }
-    
+        public Nullable<System.DateTime> DOB { get; set; }
+        [Required(ErrorMessage = "Please enter emailid.")]
+        [EmailAddress(ErrorMessage = "Invalid emailid.")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Please enter city.")]
+        public string City { get; set; }
+        [Required(ErrorMessage = "Please enter country.")]
+        public string Country { get; set; }
+        //public Nullable<System.DateTime> DOJ { get; set; }
+        public Nullable<System.DateTime> DOJ { get; set; }
+
         public virtual tblDepartment tblDepartment { get; set; }
         public virtual tblEmployeeType tblEmployeeType { get; set; }
     }

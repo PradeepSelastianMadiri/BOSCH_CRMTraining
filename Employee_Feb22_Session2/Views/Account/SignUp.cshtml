@@ -22,27 +22,34 @@
 
     <table border="2">
         <tr>
-            <td>@Html.LabelFor(model => model.UserName)</td>
-            <td> @Html.EditorFor(model => model.UserName)</td>
+            <td style="Width:150px;height: 35px;text-align:center;">@Html.LabelFor(model => model.UserName)</td>
+            <td style="Width:150px;text-align:left;"> @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", style = "height:inherit;width:300px", placeholder = "Enter UserName" } })</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.Password)</td>
-            <td> @Html.PasswordFor(model => model.Password)</td>
+            <td style="Width:150px;height: 35px;text-align:center;">@Html.LabelFor(model => model.Password)</td>
+            <td style="Width:150px;text-align:left;"> @Html.PasswordFor(model => model.Password, new { @class = "form-control", autocomplete = "off", style = "height:inherit;width:300px", placeholder = "Enter Password" })</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.Name)</td>
-            <td> @Html.EditorFor(model => model.Name)</td>
+            <td style="Width:150px;height: 35px;text-align:center;">@Html.LabelFor(model => model.Name)</td>
+            <td style="Width:150px;text-align:left;"> @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", style = "height:inherit;width:300px", placeholder = "Enter Name" } })</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.MobileNo)</td>
-            <td> @Html.EditorFor(model => model.MobileNo)</td>
+            <td style="Width:150px;height: 35px;text-align:center;">@Html.LabelFor(model => model.MobileNo)</td>
+            <td style="Width:150px;text-align:left;"> @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", style = "height:inherit;width:300px", placeholder = "Enter MobileNo" } })</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.Address)</td>
-            <td> @Html.EditorFor(model => model.Address)</td>
+            <td style="Width:150px;height: 35px;text-align:center;">@Html.LabelFor(model => model.Address)</td>
+            <td style="Width:150px;text-align:left;"> @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", style = "height:inherit;width:300px", placeholder = "Enter Address" } })</td>
         </tr>
         <tr>
-            <td> <input type="submit" value="Sign-Up" /></td>
+            <td colspan="2" style="text-align:center;height:35px">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input class="btn btn-success" type="submit" value="Sign-Up" />
+                    </div>
+                </div>
+            </td>
+
         </tr>
     </table>
 }
